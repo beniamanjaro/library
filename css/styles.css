@@ -22,8 +22,11 @@ h1 {
 }
 
 button.addBook-btn {
+  display: block;
   width: auto;
-  margin: 10px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 5px;
   font-size: 40px;
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -45,7 +48,9 @@ button.addBook-btn:active {
 #book-info {
   position: relative;
   width: fit-content;
-  margin: 10px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 25px;
   border: 2px solid orange;
   color: white;
@@ -55,13 +60,13 @@ input {
   display: block;
   width: 500px;
   height: 25px;
+  padding-left: 10px;
   margin: 5px;
   border-radius: 5px;
 }
 
 ::placeholder {
   color: rgb(252, 3, 19, 0.9);
-  padding: 5px;
 }
 
 ::placeholder:focus {
@@ -81,12 +86,59 @@ button {
 }
 
 button:hover {
-  background-color: rgb(153, 153, 255, 0.9);
+  background-color: rgb(153, 153, 255, 0.8);
   cursor: pointer;
 }
 
 button:active {
   background-color: rgb(153, 153, 255);
+}
+
+.title {
+  height: 20%;
+  text-align: center;
+  color: white;
+  font-size: 30px;
+}
+
+.author {
+  height: 10%;
+  margin: auto;
+  text-align: center;
+  color: white;
+  font-size: 25px;
+}
+
+.pages {
+  text-align: left;
+  margin-top: 160px;
+  margin-left: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+#book-info-container {
+
+  width: auto;
+  height: auto;
+}
+
+#getBook { 
+  height: auto;
+}
+
+.bookId {
+  width: 300px;
+  height: 350px;
+  border: 2px dotted yellow ;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.book {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 #book {
@@ -97,65 +149,3 @@ button:active {
   height: 200px;
 }
 
-/* The switch - the box around the slider */
-#switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-/* Hide default HTML checkbox */
-#switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
-
-input:checked + .slider {
-  background-color: #2196f3;
-}
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
-}
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
-}
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}

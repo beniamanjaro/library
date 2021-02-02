@@ -5,10 +5,9 @@ const addAuthor = document.createElement("input");
 const addTitle = document.createElement("input");
 const addPages = document.createElement("input");
 const addConfirmButton = document.createElement("button");
-const library = document.querySelector("#renderBooks");
 const readButton = document.getElementById("switch");
+const bookContainer = document.querySelector(".book");
 
-let counter = 2;
 
 addBook.addEventListener("click", () => {
   inputs.setAttribute("id", "book-info");
@@ -24,43 +23,68 @@ addBook.addEventListener("click", () => {
   document.getElementById("book-info").appendChild(addConfirmButton);
 });
 
-function book(title, author, pages, read) {
+function removeAddBook() {
+  inputs.remove();
+}
+
+function resetAddBookInputs() {
+  addTitle.value = "";
+  addAuthor.value = "";
+  addPages.value = "";
+}
+
+addConfirmButton.addEventListener("click", () => {
+  let title = addTitle.value;
+  let author = "by " + addAuthor.value;
+  let pages = "pages: " + addPages.value;
+  title = new Book(title, author, pages, "yes");
+  createBook(title);
+  myLibrary.push(title);
+  removeAddBook();
+  resetAddBookInputs();
+  console.table(myLibrary);
+})
+
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
   this.read = read;
 }
 
-const oneThousandAndEightyFour = new book(
+const oneThousandAndEightyFour = new Book(
   "1984",
   "George Orwell",
   "300",
-  "readingsss"
+  "ye"
 );
-const gulagArhipelago = new book(
+const gulagArhipelago = new Book(
   "Gulag Arhipelago",
   "Alexandru Soljenitzn",
   "300",
   "no"
 );
 
-let myLibrary = [oneThousandAndEightyFour, gulagArhipelago];
+let myLibrary = [];
 
-myLibrary.forEach((e) => {
-  let title = document.createElement("div");
-  title.setAttribute("id", "title");
-  let author = document.createElement("div");
-  author.setAttribute("id", "author");
-  let pages = document.createElement("div");
-  pages.setAttribute("id", "pages");
-  title.textContent = e.title;
-  author.textContent = e.author;
-  pages.textContent = e.pages;
-  let book = document.createElement("div");
-  book.setAttribute("id", "book");
-  document.getElementById("book").appendChild(title);
-  document.getElementById("book").appendChild(author);
-  document.getElementById("book").appendChild(pages);
-  document.getElementById("book").appendChild(readButton);
-  document.getElementById("renderBook").appendChild(book);
-});
+function createBook(book) {
+  let titleBook = document.createElement("div");
+  let authorBook = document.createElement("div");
+  let pagesBook = document.createElement("div");
+  let divBook = document.createElement("div");
+  let readButtonCheckbox = document.createElement("INPUT");
+  readButtonCheckbox.setAttribute("type", "checkbox");
+  authorBook.classList.add("author");
+  pagesBook.classList.add("pages");
+  titleBook.classList.add("title");
+  divBook.setAttribute("class", book.title);
+  divBook.classList.add("bookId");
+  titleBook.innerHTML = book.title;
+  authorBook.innerHTML = book.author;
+  pagesBook.innerHTML = book.pages;
+  divBook.appendChild(titleBook);
+  divBook.appendChild(authorBook);
+  divBook.appendChild(pagesBook);
+  divBook.appendChild(readButtonCheckbox);
+  bookContainer.appendChild(divBook);
+}
