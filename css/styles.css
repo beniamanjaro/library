@@ -45,6 +45,19 @@ button.addBook-btn:active {
   background-color: rgb(255, 204, 102, 1);
 }
 
+button.cancelBook-btn {
+  background-color: rgb(242, 66, 66);
+  float: right;
+}
+
+button.cancelBook-btn:hover {
+  background-color: rgba(242, 66, 66, 0.561);
+}
+
+button.cancelBook-btn:active {
+  background-color: rgb(242, 66, 66, 1);
+}
+
 #book-info {
   position: relative;
   width: fit-content;
@@ -57,12 +70,25 @@ button.addBook-btn:active {
 }
 
 input {
-  display: block;
   width: 500px;
   height: 25px;
   padding-left: 10px;
   margin: 5px;
   border-radius: 5px;
+}
+
+input.readCheckbox {
+  display: unset;
+  width: 25px;
+  height: 25px;
+  margin-left: 25px;
+}
+
+.readText {
+  color: white;
+  font-size: 25px;
+  margin-left: 180px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 ::placeholder {
@@ -95,6 +121,7 @@ button:active {
 }
 
 .title {
+  margin-top: 10px;
   height: 20%;
   text-align: center;
   color: white;
@@ -148,4 +175,3 @@ button:active {
   width: 160px;
   height: 200px;
 }
-
